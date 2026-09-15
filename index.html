@@ -1,1 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yamin Ahmed — Professional Trader & Financial Market Analyst." />
+  <title>Yamin Ahmed — Professional Trader</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#0c0c0c;
+      --panel-2:#101010;
+      --line:#242424;
+      --line-soft:#171717;
+      --text:#f2f2f2;
+      --muted:#909090;
+      --muted-2:#626262;
+      --white:#f4f4f4;
+      --black:#080808;
+      --green:#8be28b;
+      --danger:#d97979;
+      --max:1180px;
+      --ease:cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 80% 8%, rgba(255,255,255,.045), transparent 25%),
+        radial-gradient(circle at 15% 40%, rgba(255,255,255,.025), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+
+    /* subtle background grid */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:70px 70px;
+      mask-image:linear-gradient(to bottom, black, transparent 80%);
+      z-index:-1;
+    }
+
+    .container{width:min(var(--max), calc(100% - 48px));margin:auto}
+
+    /* NAV */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      background:rgba(7,7,7,.72);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+    .nav{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      font-weight:700;letter-spacing:-.04em;
+    }
+    .brand-mark{
+      width:34px;height:34px;border:1px solid #3a3a3a;
+      border-radius:50%;display:grid;place-items:center;
+      font-size:12px;color:#ddd;
+      background:#0d0d0d;
+      transition:.35s var(--ease);
+    }
+    .brand:hover .brand-mark{transform:rotate(180deg);border-color:#777}
+    .nav-links{display:flex;gap:30px}
+    .nav-links a{
+      font-size:11px;text-transform:uppercase;letter-spacing:.18em;
+      color:#777;transition:.3s;
+      position:relative;
+    }
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:-9px;width:0;height:1px;
+      background:#fff;transition:.3s var(--ease);
+    }
+    .nav-links a:hover{color:#fff}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{
+      border:1px solid #363636;padding:11px 16px;border-radius:3px;
+      font-size:10px;text-transform:uppercase;letter-spacing:.15em;
+      transition:.35s var(--ease);
+    }
+    .nav-cta:hover{background:#fff;color:#000;transform:translateY(-2px)}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      padding:145px 0 70px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      gap:70px;
+    }
+    .eyebrow{
+      color:#727272;text-transform:uppercase;letter-spacing:.23em;
+      font-size:10px;margin-bottom:24px;
+    }
+    .hero h1{
+      font-size:clamp(54px,7.1vw,92px);
+      line-height:.94;
+      letter-spacing:-.075em;
+      max-width:760px;
+      font-weight:700;
+    }
+    .hero h1 span{display:block;color:#777}
+    .hero-copy{
+      color:#8e8e8e;max-width:540px;
+      margin-top:30px;font-size:14px;line-height:1.9;
+    }
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:35px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:48px;padding:0 20px;border:1px solid #353535;
+      font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+      border-radius:3px;transition:.35s var(--ease);position:relative;overflow:hidden;
+    }
+    .btn::before{
+      content:"";position:absolute;inset:0;transform:translateX(-102%);
+      background:#fff;transition:.42s var(--ease);z-index:0;
+    }
+    .btn span{position:relative;z-index:1}
+    .btn:hover::before{transform:translateX(0)}
+    .btn:hover{color:#000;border-color:#fff;transform:translateY(-3px)}
+    .btn-dark{background:#fff;color:#000;border-color:#fff}
+    .btn-dark::before{background:#dcdcdc}
+    .hero-visual{
+      min-height:520px;position:relative;
+      border-left:1px solid #202020;
+      display:grid;place-items:center;
+    }
+    .visual-frame{
+      width:min(440px,90%);
+      aspect-ratio:1/1.18;
+      border:1px solid #1f1f1f;
+      background:
+        radial-gradient(circle at 52% 37%, rgba(255,255,255,.14), transparent 20%),
+        linear-gradient(145deg,#101010,#080808 65%);
+      position:relative;overflow:hidden;
+    }
+    .visual-frame::before{
+      content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+      background:radial-gradient(circle at 35% 30%,#4a4a4a,#161616 58%,#090909 72%);
+      top:85px;left:50%;transform:translateX(-50%);
+      filter:blur(.2px);
+    }
+    .visual-frame::after{
+      content:"";position:absolute;width:340px;height:180px;border-radius:50% 50% 8px 8px;
+      background:linear-gradient(135deg,#222,#0b0b0b);
+      bottom:-35px;left:50%;transform:translateX(-50%);
+    }
+    .metric{
+      position:absolute;z-index:2;border:1px solid #333;background:rgba(8,8,8,.85);
+      padding:15px 17px;backdrop-filter:blur(10px);
+    }
+    .metric small{display:block;color:#6c6c6c;text-transform:uppercase;letter-spacing:.13em;font-size:8px}
+    .metric strong{display:block;font-size:24px;margin-top:4px;letter-spacing:-.05em}
+    .metric.top{right:20px;top:35px}
+    .metric.bottom{left:20px;bottom:34px}
+    .vertical{
+      position:absolute;right:-52px;top:50%;transform:rotate(90deg);
+      font-size:8px;letter-spacing:.3em;color:#555;text-transform:uppercase;
+    }
+
+    /* SECTIONS */
+    section{padding:115px 0;border-top:1px solid var(--line-soft)}
+    .section-head{
+      display:flex;justify-content:space-between;align-items:flex-end;gap:30px;
+      margin-bottom:52px;
+    }
+    .section-number{font-size:10px;color:#555;letter-spacing:.2em}
+    .section-title{
+      font-size:clamp(34px,5vw,60px);letter-spacing:-.065em;line-height:1;
+      margin-top:10px;
+    }
+    .section-intro{max-width:390px;color:#777;font-size:12px;line-height:1.8}
+
+    /* ABOUT */
+    .about-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#202020;
+      border:1px solid #202020;
+    }
+    .about-card{background:#0b0b0b;padding:34px;min-height:190px}
+    .about-card h3{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#707070;margin-bottom:15px}
+    .about-card p{font-size:15px;color:#ddd;line-height:1.75}
+    .about-card strong{font-size:30px;letter-spacing:-.06em}
+
+    /* SERVICES */
+    .service-list{border-top:1px solid #252525}
+    .service{
+      display:grid;grid-template-columns:90px 1fr auto;gap:30px;align-items:center;
+      padding:30px 0;border-bottom:1px solid #252525;
+      transition:.35s var(--ease);
+    }
+    .service:hover{padding-left:16px;background:linear-gradient(90deg,rgba(255,255,255,.035),transparent)}
+    .service-num{font-size:10px;color:#555;letter-spacing:.12em}
+    .service h3{font-size:22px;letter-spacing:-.04em;font-weight:600}
+    .service p{font-size:12px;color:#777;margin-top:7px;max-width:650px}
+    .arrow{
+      width:42px;height:42px;border:1px solid #303030;display:grid;place-items:center;
+      transition:.35s var(--ease);font-size:16px;color:#777;
+    }
+    .service:hover .arrow{background:#fff;color:#000;transform:rotate(-45deg)}
+
+    /* PORTFOLIO */
+    .work{
+      border:1px solid #252525;
+      background:linear-gradient(145deg,#0c0c0c,#080808);
+      padding:40px;
+      position:relative;overflow:hidden;
+    }
+    .work::before{
+      content:"";position:absolute;right:-80px;top:-120px;width:350px;height:350px;
+      border-radius:50%;border:1px solid #202020;
+      box-shadow:0 0 0 40px rgba(255,255,255,.008),0 0 0 80px rgba(255,255,255,.006);
+    }
+    .work-top{display:flex;justify-content:space-between;gap:25px;align-items:flex-start}
+    .work-tag{font-size:9px;color:#777;letter-spacing:.18em;text-transform:uppercase}
+    .work h3{font-size:34px;letter-spacing:-.055em;margin-top:12px}
+    .work-copy{max-width:610px;color:#777;font-size:13px;margin-top:14px;line-height:1.8}
+    .stats{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#252525;
+      margin-top:40px;border:1px solid #252525;
+    }
+    .stat{background:#0b0b0b;padding:24px}
+    .stat small{display:block;color:#666;font-size:8px;text-transform:uppercase;letter-spacing:.15em}
+    .stat strong{display:block;font-size:25px;margin-top:8px;letter-spacing:-.05em}
+    .chart{
+      height:120px;margin-top:32px;border:1px solid #202020;position:relative;overflow:hidden;
+      background:repeating-linear-gradient(to right,transparent 0 59px,rgba(255,255,255,.025) 60px),
+                 repeating-linear-gradient(to bottom,transparent 0 39px,rgba(255,255,255,.025) 40px);
+    }
+    .chart svg{width:100%;height:100%}
+    .work-actions{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+
+    /* CONTACT */
+    .contact{
+      display:grid;grid-template-columns:1fr .9fr;gap:70px;align-items:end;
+    }
+    .contact h2{font-size:clamp(48px,7vw,86px);line-height:.9;letter-spacing:-.075em}
+    .contact h2 span{color:#666}
+    .contact-copy{color:#777;font-size:13px;max-width:500px;margin-top:25px}
+    .contact-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .contact-btn{
+      min-height:60px;border:1px solid #292929;display:flex;align-items:center;
+      justify-content:space-between;padding:0 18px;
+      font-size:10px;text-transform:uppercase;letter-spacing:.13em;
+      transition:.35s var(--ease);
+    }
+    .contact-btn .icon{color:#666;font-size:16px}
+    .contact-btn:hover{background:#fff;color:#000;border-color:#fff;transform:translateY(-3px)}
+    .contact-btn:hover .icon{color:#000}
+
+    footer{
+      border-top:1px solid #1b1b1b;padding:28px 0;
+      color:#555;font-size:9px;text-transform:uppercase;letter-spacing:.15em;
+    }
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+    /* reveal animations */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .reveal.show{opacity:1;transform:none}
+    .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
+
+    /* mobile */
+    @media(max-width:850px){
+      .container{width:min(var(--max),calc(100% - 30px))}
+      .nav{height:68px}
+      .nav-links{display:none}
+      .nav-cta{padding:9px 12px}
+      .hero{
+        padding:118px 0 55px;
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+      .hero h1{font-size:clamp(48px,15vw,76px)}
+      .hero-visual{min-height:410px;border-left:0}
+      .visual-frame{width:min(360px,92%)}
+      section{padding:80px 0}
+      .section-head{display:block;margin-bottom:35px}
+      .section-intro{margin-top:18px}
+      .about-grid{grid-template-columns:1fr}
+      .about-card{min-height:auto}
+      .service{grid-template-columns:45px 1fr auto;gap:12px;padding:24px 0}
+      .service h3{font-size:17px}
+      .service p{font-size:11px}
+      .stats{grid-template-columns:1fr 1fr}
+      .work{padding:25px}
+      .work h3{font-size:27px}
+      .contact{grid-template-columns:1fr;gap:35px}
+    }
+
+    @media(max-width:500px){
+      .hero-actions .btn{width:100%}
+      .hero-copy{font-size:12px}
+      .metric.top{right:8px;top:20px}
+      .metric.bottom{left:8px;bottom:20px}
+      .metric strong{font-size:20px}
+      .visual-frame::before{width:205px;height:205px;top:80px}
+      .visual-frame::after{width:270px;height:145px}
+      .stats{grid-template-columns:1fr 1fr}
+      .stat{padding:17px}
+      .stat strong{font-size:20px}
+      .contact-buttons{grid-template-columns:1fr}
+      .footer-inner{display:block}
+      .footer-inner div+div{margin-top:8px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Yamin Ahmed home">
+        <span class="brand-mark">Y</span>
+        <span>YAMIN AHMED</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="#contact">Contact Me</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div>
+        <div class="eyebrow reveal">Hello, I'm Yamin Ahmed</div>
+        <h1 class="reveal delay-1">
+          Professional
+          <span>Trader.</span>
+        </h1>
+        <p class="hero-copy reveal delay-2">
+          Professional Trader & Financial Market Analyst focused on strategic execution,
+          disciplined risk management, gold trading, major currency pairs, and systematic
+          rule-based trading solutions.
+        </p>
+
+        <div class="hero-actions reveal delay-3">
+          <a class="btn btn-dark" href="#contact"><span>Contact Me ↗</span></a>
+          <a class="btn" href="#portfolio"><span>View Trading Record</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-2">
+        <div class="visual-frame">
+          <div class="metric top">
+            <small>Experience</small>
+            <strong>2+ Years</strong>
+          </div>
+          <div class="metric bottom">
+            <small>Primary Market</small>
+            <strong>XAU / USD</strong>
+          </div>
+          <div class="vertical">TRADING • ANALYSIS • SYSTEMS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number">01 / ABOUT</div>
+            <h2 class="section-title">Market focused.<br>System driven.</h2>
+          </div>
+          <p class="section-intro">
+            A trading-focused profile built around experience, disciplined execution,
+            quantitative thinking, and structured market analysis.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card reveal">
+            <h3>Experience</h3>
+            <strong>2+ Years</strong>
+            <p>Active financial market trading experience with a focus on consistent, rule-based execution.</p>
+          </article>
+
+          <article class="about-card reveal delay-1">
+            <h3>Primary Specialization</h3>
+            <strong>Gold / XAUUSD</strong>
+            <p>Focused market expertise in gold trading, price action, risk control, and strategic execution.</p>
+          </article>
+
+          <article class="about-card reveal delay-2">
+            <h3>Currency Markets</h3>
+            <strong>Major Pairs</strong>
+            <p>Market analysis and trading across major currency pairs including EUR/USD and GBP/USD.</p>
+          </article>
+
+          <article class="about-card reveal delay-3">
+            <h3>Systems</h3>
+            <strong>EA + Quant</strong>
+            <p>Proprietary Expert Advisor systems and quantitative strategies designed for rule-based execution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number">02 / SERVICES</div>
+            <h2 class="section-title">What I<br>provide.</h2>
+          </div>
+          <p class="section-intro">
+            Professional trading and market-focused solutions designed around structure,
+            risk management, analysis, and execution.
+          </p>
+        </div>
+
+        <div class="service-list">
+          <article class="service reveal">
+            <div class="service-num">01</div>
+            <div>
+              <h3>Fund Management</h3>
+              <p>Capital and portfolio management focused on strict risk control and optimized returns.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </article>
+
+          <article class="service reveal delay-1">
+            <div class="service-num">02</div>
+            <div>
+              <h3>Custom EA Development</h3>
+              <p>Automated trading systems built around rule-based and algorithmic execution.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </article>
+
+          <article class="service reveal delay-2">
+            <div class="service-num">03</div>
+            <div>
+              <h3>Market Analysis Reports</h3>
+              <p>Monthly and yearly macroeconomic and technical market forecasts with structured analysis.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </article>
+
+          <article class="service reveal delay-3">
+            <div class="service-num">04</div>
+            <div>
+              <h3>Professional Trading Mentorship</h3>
+              <p>A-to-Z trading education covering fundamentals, advanced strategies, market concepts, and execution frameworks.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number">03 / PORTFOLIO</div>
+            <h2 class="section-title">Trading<br>performance.</h2>
+          </div>
+          <p class="section-intro">
+            A dedicated area for verified trading records, performance metrics,
+            strategy results, and future account statistics.
+          </p>
+        </div>
+
+        <div class="work reveal">
+          <div class="work-top">
+            <div>
+              <div class="work-tag">Proof of Work / Trading Records</div>
+              <h3>Trading Portfolio Dashboard</h3>
+              <p class="work-copy">
+                Verified trading records and dashboard performance metrics can be presented here.
+                Add your trading-record dashboard as the live portfolio proof section.
+              </p>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <small>Experience</small>
+              <strong>2+ YRS</strong>
+            </div>
+            <div class="stat">
+              <small>Specialization</small>
+              <strong>XAUUSD</strong>
+            </div>
+            <div class="stat">
+              <small>Systems</small>
+              <strong>EA + QUANT</strong>
+            </div>
+            <div class="stat">
+              <small>Approach</small>
+              <strong>RULE BASED</strong>
+            </div>
+          </div>
+
+          <div class="chart" aria-label="Illustrative performance chart">
+            <svg viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+              <polyline
+                points="0,100 65,94 125,99 190,79 250,86 315,68 375,74 440,50 505,58 570,42 635,49 700,27 765,37 830,20 900,31 1000,8"
+                fill="none" stroke="#bdbdbd" stroke-width="2"/>
+              <polyline
+                points="0,112 1000,112"
+                fill="none" stroke="#303030" stroke-width="1"/>
+            </svg>
+          </div>
+
+          <div class="work-actions">
+            <!-- Replace the href below with your actual trading-record HTML page URL if needed -->
+            <a class="btn btn-dark" href="yeamin_trading_portfolio.html"><span>Open Trading Records ↗</span></a>
+            <a class="btn" href="#contact"><span>Discuss My Work</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact">
+        <div class="reveal">
+          <div class="section-number">04 / CONTACT</div>
+          <h2>Let's work<br><span>together.</span></h2>
+          <p class="contact-copy">
+            For trading, fund management, EA development, market analysis, or mentorship,
+            reach out through any of the channels below.
+          </p>
+        </div>
+
+        <div class="contact-buttons reveal delay-1">
+          <a class="contact-btn" href="mailto:yeaminahmed01232@gmail.com">
+            <span>Email Me</span><span class="icon">↗</span>
+          </a>
+
+          <!-- Add your real WhatsApp number in the href, e.g. https://wa.me/8801XXXXXXXXX -->
+          <a class="contact-btn" href="https://wa.me/" target="_blank" rel="noopener">
+            <span>WhatsApp</span><span class="icon">↗</span>
+          </a>
+
+          <!-- Add your real Telegram username/link in the href -->
+          <a class="contact-btn" href="https://t.me/" target="_blank" rel="noopener">
+            <span>Telegram</span><span class="icon">↗</span>
+          </a>
+
+          <a class="contact-btn" href="https://www.instagram.com/yeami_nahmed/" target="_blank" rel="noopener">
+            <span>Instagram</span><span class="icon">↗</span>
+          </a>
+
+          <a class="contact-btn" href="https://www.facebook.com/yeamin.ahmed.158282" target="_blank" rel="noopener">
+            <span>Facebook</span><span class="icon">↗</span>
+          </a>
+
+          <a class="contact-btn" href="#home">
+            <span>Back To Top</span><span class="icon">↑</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Yamin Ahmed</div>
+      <div>Professional Trader & Financial Market Analyst</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Close mobile-style smooth navigation naturally
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
