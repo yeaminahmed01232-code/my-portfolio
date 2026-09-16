@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Journal — XAUUSD</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#eee;font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+:root{--bg:#050505;--panel:#090909;--line:#242424;--muted:#686868;--soft:#999;--green:#b9d7c3;--red:#c99494}
+.wrap{max-width:1180px;margin:auto;padding:0 28px}
+header{padding:70px 0 45px;border-bottom:1px solid var(--line)}
+.kicker{font-size:9px;letter-spacing:2.5px;color:#555;margin-bottom:18px}
+h1{font-size:clamp(42px,7vw,78px);line-height:.95;font-weight:500;letter-spacing:-4px}
+h1 span{color:#5d5d5d}
+.header-meta{margin-top:25px;color:#666;font-size:11px;display:flex;gap:28px;flex-wrap:wrap}
+section{padding:75px 0;border-bottom:1px solid #191919}
+.num{font-size:8px;letter-spacing:2px;color:#4e4e4e;margin-bottom:15px}
+h2{font-size:36px;letter-spacing:-2px;font-weight:500;margin-bottom:10px}
+.sub{font-size:11px;color:#666;max-width:560px}
+.stats{margin-top:40px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:23px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat small{display:block;color:#555;font-size:8px;letter-spacing:1.2px;margin-bottom:9px}
+.stat strong{font-size:25px;font-weight:400}
+.green{color:var(--green)!important}.red{color:var(--red)!important}
+.grid{margin-top:28px;display:grid;grid-template-columns:1.5fr .5fr;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line)}
+.panel-head{height:52px;padding:0 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.panel-head span{font-size:8px;letter-spacing:1.5px;color:#555}
+.chart{height:300px;padding:18px}
+.chart svg{width:100%;height:100%}
+.g{stroke:#181818;stroke-width:1}.curve{fill:none;stroke:#aaa;stroke-width:2}.area{fill:url(#a)}
+.result{padding:28px}.big{font-size:55px;font-weight:300}.label{font-size:8px;letter-spacing:1px;color:#555;margin-top:3px;margin-bottom:30px}
+.row{display:flex;justify-content:space-between;border-top:1px solid #1d1d1d;padding:13px 0;font-size:10px;color:#666}
+.row strong{color:#aaa;font-weight:400}
+.table{margin-top:35px;overflow:auto;border:1px solid var(--line)}
+table{width:100%;min-width:900px;border-collapse:collapse}
+th{text-align:left;padding:15px;font-size:8px;font-weight:400;letter-spacing:1.2px;color:#555;background:#090909;border-bottom:1px solid var(--line)}
+td{padding:15px;font-size:10px;color:#888;border-bottom:1px solid #181818}
+tbody tr:hover{background:#0c0c0c}
+.strategy{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.card{padding:28px;border-right:1px solid var(--line);min-height:210px}
+.card:last-child{border-right:0}
+.card .n{font-size:8px;color:#4d4d4d;margin-bottom:42px}
+.card h3{font-size:17px;font-weight:400;margin-bottom:12px}
+.card p{font-size:10px;color:#666;line-height:1.9}
+.note{margin-top:12px;font-size:8px;color:#4d4d4d}
+footer{padding:25px 0;color:#444;font-size:8px;letter-spacing:1px;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(2n){border-right:0}
+.grid{grid-template-columns:1fr}
+.strategy{grid-template-columns:1fr}
+.card{border-right:0;border-bottom:1px solid var(--line)}
+.card:last-child{border-bottom:0}
+}
+@media(max-width:520px){
+.wrap{padding:0 18px}
+header{padding-top:50px}
+h1{font-size:50px;letter-spacing:-3px}
+section{padding:55px 0}
+h2{font-size:30px}
+.stats{grid-template-columns:1fr 1fr}
+.stat{padding:18px 14px}
+.stat strong{font-size:21px}
+.header-meta{gap:12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="reveal">
+<div class="kicker">TRADING JOURNAL / PERFORMANCE RECORD</div>
+<h1>XAUUSD<br><span>Trading Record.</span></h1>
+<div class="header-meta">
+<span>MARKET: GOLD / XAUUSD</span>
+<span>TIMEFRAME: INTRADAY</span>
+<span>RISK MODEL: 1:2 RR</span>
+<span>PERIOD: 01–30 SEP 2026</span>
+</div>
+</header>
+
+<section>
+<div class="reveal">
+<div class="num">01 / MONTHLY PERFORMANCE</div>
+<h2>Trading Performance.</h2>
+<p class="sub">Sample/demo monthly trading statistics for an XAUUSD journal.</p>
+</div>
+
+<div class="stats reveal">
+<div class="stat"><small>NET RETURN</small><strong class="green">+8.4%</strong></div>
+<div class="stat"><small>WIN RATE</small><strong>63.3%</strong></div>
+<div class="stat"><small>TOTAL TRADES</small><strong>30</strong></div>
+<div class="stat"><small>PROFIT FACTOR</small><strong>1.82</strong></div>
+<div class="stat"><small>MAX DRAWDOWN</small><strong class="red">-2.1%</strong></div>
+</div>
+
+<div class="grid">
+<div class="panel reveal">
+<div class="panel-head"><span>EQUITY CURVE</span><span>XAUUSD / 1 MONTH</span></div>
+<div class="chart">
+<svg viewBox="0 0 700 280" preserveAspectRatio="none">
+<defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#aaa" stop-opacity=".18"/><stop offset="100%" stop-color="#aaa" stop-opacity="0"/></linearGradient></defs>
+<line class="g" x1="0" y1="45" x2="700" y2="45"/><line class="g" x1="0" y1="105" x2="700" y2="105"/><line class="g" x1="0" y1="165" x2="700" y2="165"/><line class="g" x1="0" y1="225" x2="700" y2="225"/>
+<path class="area" d="M0 225 L45 235 L90 205 L135 215 L180 180 L225 192 L270 160 L315 174 L360 130 L405 145 L450 112 L495 125 L540 92 L585 105 L630 68 L700 45 L700 280 L0 280Z"/>
+<path class="curve" d="M0 225 L45 235 L90 205 L135 215 L180 180 L225 192 L270 160 L315 174 L360 130 L405 145 L450 112 L495 125 L540 92 L585 105 L630 68 L700 45"/>
+</svg>
+</div>
+</div>
+
+<div class="panel reveal">
+<div class="panel-head"><span>RESULT BREAKDOWN</span></div>
+<div class="result">
+<div class="big">19</div><div class="label">WINNING TRADES</div>
+<div class="row"><span>Winning</span><strong class="green">19</strong></div>
+<div class="row"><span>Losing</span><strong class="red">8</strong></div>
+<div class="row"><span>Breakeven</span><strong>3</strong></div>
+<div class="row"><span>Average Risk</span><strong>0.5%</strong></div>
+<div class="row"><span>Average R:R</span><strong>1:2</strong></div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="reveal">
+<div class="num">02 / TRADE JOURNAL</div>
+<h2>Execution Log.</h2>
+<p class="sub">Sample XAUUSD trade records with predefined risk and reward.</p>
+</div>
+
+<div class="table reveal">
+<table>
+<thead><tr><th>DATE</th><th>PAIR</th><th>SIDE</th><th>ENTRY</th><th>SL</th><th>TP</th><th>EXIT</th><th>LOT</th><th>R:R</th><th>RESULT</th><th>P/L</th></tr></thead>
+<tbody>
+<tr><td>01 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3421.80</td><td>3416.80</td><td>3431.80</td><td>3431.80</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>03 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3440.50</td><td>3445.50</td><td>3430.50</td><td>3445.50</td><td>0.10</td><td>1:2</td><td class="red">LOSS</td><td class="red">-$10</td></tr>
+<tr><td>04 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3435.20</td><td>3430.20</td><td>3445.20</td><td>3445.20</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>07 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3452.70</td><td>3447.70</td><td>3462.70</td><td>3452.70</td><td>0.10</td><td>1:2</td><td>BE</td><td>$0</td></tr>
+<tr><td>08 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3468.40</td><td>3473.40</td><td>3458.40</td><td>3458.40</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>10 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3481.60</td><td>3486.60</td><td>3471.60</td><td>3486.60</td><td>0.10</td><td>1:2</td><td class="red">LOSS</td><td class="red">-$10</td></tr>
+<tr><td>11 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3474.30</td><td>3469.30</td><td>3484.30</td><td>3484.30</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>14 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3492.80</td><td>3497.80</td><td>3482.80</td><td>3482.80</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>15 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3486.20</td><td>3481.20</td><td>3496.20</td><td>3481.20</td><td>0.10</td><td>1:2</td><td class="red">LOSS</td><td class="red">-$10</td></tr>
+<tr><td>16 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3498.60</td><td>3493.60</td><td>3508.60</td><td>3508.60</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>18 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3512.40</td><td>3517.40</td><td>3502.40</td><td>3502.40</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>21 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3521.90</td><td>3526.90</td><td>3511.90</td><td>3526.90</td><td>0.10</td><td>1:2</td><td class="red">LOSS</td><td class="red">-$10</td></tr>
+<tr><td>22 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3515.70</td><td>3510.70</td><td>3525.70</td><td>3525.70</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+<tr><td>24 SEP</td><td>XAUUSD</td><td class="green">BUY</td><td>3530.30</td><td>3525.30</td><td>3540.30</td><td>3530.30</td><td>0.10</td><td>1:2</td><td>BE</td><td>$0</td></tr>
+<tr><td>25 SEP</td><td>XAUUSD</td><td class="red">SELL</td><td>3541.50</td><td>3546.50</td><td>3531.50</td><td>3531.50</td><td>0.10</td><td>1:2</td><td class="green">WIN</td><td class="green">+$20</td></tr>
+</tbody>
+</table>
+</div>
+<div class="note">* SAMPLE / DEMO DATA — NOT VERIFIED LIVE PERFORMANCE.</div>
+</section>
+
+<section>
+<div class="reveal">
+<div class="num">03 / TRADING SYSTEM</div>
+<h2>Trading Rules.</h2>
+<p class="sub">The core principles used for the sample trading journal.</p>
+</div>
+
+<div class="strategy">
+<div class="card reveal"><div class="n">01</div><h3>Market Structure</h3><p>Define directional bias and key price levels before considering an entry.</p></div>
+<div class="card reveal"><div class="n">02</div><h3>Risk Management</h3><p>Predefine stop loss, position size and maximum risk before every trade.</p></div>
+<div class="card reveal"><div class="n">03</div><h3>Execution</h3><p>Take only qualified setups and avoid emotional entries or unnecessary overtrading.</p></div>
+</div>
+</section>
+
+<footer>
+<span>TRADING JOURNAL / XAUUSD</span>
+<span>© 2026</span>
+</footer>
+</div>
+
+<script>
+const els=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.08});
+els.forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
