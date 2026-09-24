@@ -333,6 +333,125 @@
       .footer-inner div+div{margin-top:8px}
     }
 
+
+
+    /* Enhanced mobile responsiveness */
+    @media(max-width:850px){
+      body{overflow-x:hidden;}
+      .container{width:calc(100% - 28px);max-width:none;}
+      header{background:rgba(7,7,7,.92);}
+      .nav{height:64px;gap:12px;}
+      .brand{font-size:12px;gap:8px;min-width:0;}
+      .brand-mark{width:30px;height:30px;flex:0 0 30px;}
+      .nav-links{display:none;}
+      .nav-cta{font-size:8px;padding:9px 10px;letter-spacing:.11em;white-space:nowrap;}
+
+      .hero{
+        min-height:auto;
+        padding:105px 0 55px;
+        display:flex;
+        flex-direction:column;
+        gap:42px;
+        align-items:stretch;
+      }
+      .eyebrow{font-size:8px;letter-spacing:.18em;margin-bottom:18px;}
+      .hero h1{font-size:clamp(46px,16vw,72px);line-height:.92;letter-spacing:-.07em;}
+      .hero-copy{font-size:12px;line-height:1.75;margin-top:22px;max-width:100%;}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:25px;}
+      .hero-actions .btn{width:100%;min-height:46px;}
+
+      .hero-visual{
+        width:100%;
+        min-height:0;
+        height:auto;
+        border-left:0;
+        display:flex;
+        justify-content:center;
+        padding:0 0 8px;
+      }
+      .visual-frame{
+        width:min(100%,360px);
+        aspect-ratio:1/1.18;
+      }
+      .metric{padding:11px 12px;}
+      .metric small{font-size:7px;}
+      .metric strong{font-size:18px;}
+      .metric.top{right:10px;top:18px;}
+      .metric.bottom{left:10px;bottom:18px;}
+      .vertical{display:none;}
+
+      section{padding:72px 0;}
+      .section-head{display:block;margin-bottom:30px;}
+      .section-number{font-size:8px;}
+      .section-title{font-size:clamp(36px,11vw,52px);line-height:.96;margin-top:9px;}
+      .section-intro{font-size:11px;line-height:1.75;margin-top:16px;max-width:100%;}
+
+      .about-grid{grid-template-columns:1fr;gap:1px;}
+      .about-card{padding:25px 22px;min-height:auto;}
+      .about-card h3{font-size:9px;margin-bottom:10px;}
+      .about-card strong{font-size:25px;}
+      .about-card p{font-size:12px;line-height:1.7;margin-top:5px;}
+
+      .service{
+        grid-template-columns:32px minmax(0,1fr) 34px;
+        gap:9px;
+        padding:22px 0;
+        align-items:start;
+      }
+      .service:hover{padding-left:0;background:none;}
+      .service-num{font-size:8px;padding-top:3px;}
+      .service h3{font-size:16px;line-height:1.25;}
+      .service p{font-size:10px;line-height:1.65;margin-top:6px;}
+      .arrow{width:34px;height:34px;font-size:13px;}
+
+      .work{padding:22px 17px;}
+      .work-top{display:block;}
+      .work-tag{font-size:7px;}
+      .work h3{font-size:24px;line-height:1.1;margin-top:10px;}
+      .work-copy{font-size:11px;line-height:1.7;margin-top:11px;}
+      .stats{grid-template-columns:1fr 1fr;margin-top:25px;}
+      .stat{padding:16px 12px;min-width:0;}
+      .stat small{font-size:7px;white-space:nowrap;}
+      .stat strong{font-size:16px;line-height:1.15;word-break:break-word;}
+      .chart{height:105px;margin-top:22px;}
+      .work-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:20px;}
+      .work-actions .btn{width:100%;min-height:45px;}
+
+      .contact{grid-template-columns:1fr;gap:30px;align-items:start;}
+      .contact h2{font-size:clamp(46px,15vw,70px);line-height:.9;}
+      .contact-copy{font-size:11px;line-height:1.75;margin-top:19px;}
+      .contact-buttons{grid-template-columns:1fr;gap:8px;}
+      .contact-btn{min-height:54px;padding:0 15px;font-size:9px;}
+
+      footer{padding:22px 0;font-size:7px;line-height:1.7;}
+      .footer-inner{display:flex;flex-direction:column;gap:5px;}
+    }
+
+    @media(max-width:420px){
+      .container{width:calc(100% - 22px);}
+      .nav{height:60px;}
+      .brand{font-size:10px;}
+      .brand-mark{width:28px;height:28px;flex-basis:28px;font-size:10px;}
+      .nav-cta{font-size:7px;padding:8px 9px;}
+      .hero{padding-top:95px;gap:36px;}
+      .hero h1{font-size:clamp(43px,16vw,62px);}
+      .visual-frame{width:min(100%,330px);}
+      .metric{padding:9px 10px;}
+      .metric strong{font-size:16px;}
+      .metric.top{right:8px;top:14px;}
+      .metric.bottom{left:8px;bottom:14px;}
+      section{padding:62px 0;}
+      .section-title{font-size:38px;}
+      .about-card{padding:22px 18px;}
+      .service{grid-template-columns:27px minmax(0,1fr) 32px;gap:8px;}
+      .service h3{font-size:15px;}
+      .service p{font-size:9.5px;}
+      .work{padding:20px 14px;}
+      .work h3{font-size:22px;}
+      .stat{padding:14px 10px;}
+      .stat strong{font-size:14px;}
+    }
+
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
       .reveal{opacity:1;transform:none}
